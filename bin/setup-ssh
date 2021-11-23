@@ -11,9 +11,6 @@ fi
 log-info "Setting up SSH Key"
 
 mkdir -p /root/.ssh
-echo "$SSH_PRIVATE_KEY" | tr -d '\r' >/root/.ssh/id_rsa
-chmod 600 /root/.ssh/id_rsa
-chmod 700 /root/.ssh
 
 if [ -n "$SSH_HOST_KEY" ]; then
   log-info "Adding SSH_HOST_KEY to known_hosts"
@@ -29,4 +26,4 @@ fi
 
 log-info "Adding SSH Key to ssh-agent"
 eval "$(ssh-agent -s)"
-ssh-add /root/.ssh/id_rsa
+echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -

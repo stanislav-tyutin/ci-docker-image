@@ -1,0 +1,6 @@
+#!/bin/sh -l
+set -e
+
+openssl aes-256-cbc -salt -a -pbkdf2 -d -in ${ENC_ENV_FILE} -out ci.env.tmp -pass pass:${ENC_ENV_PASSWORD}
+
+cat ci.env.tmp

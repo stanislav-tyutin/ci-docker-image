@@ -1,0 +1,8 @@
+#!/bin/sh -l
+set -e
+
+if [ -n "$ENC_ENV_FILE" ]; then
+  decrypt-env
+else
+  echo $ENV_CONTENT
+fi

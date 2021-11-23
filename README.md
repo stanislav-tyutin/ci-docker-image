@@ -22,6 +22,7 @@ This image provides two binaries for external usage:
 
 - `dokku-deploy`: Triggers an app deploy at the configured `GIT_REMOTE_URL`
 - `dokku-unlock`: Unlocks deploys for an app at the configured `GIT_REMOTE_URL`
+- `dokku-config`: Configures environment variables for an app from `ENV_CONTENT` or from encrypted file
 
 To run either binary, the following `docker` command can be used from a
 directory containing a non-shallow clone of the repository being deployed:
@@ -73,6 +74,18 @@ The following environment variables are supported:
 - `SSH_PRIVATE_KEY`:
   - description: A private SSH key that has push acces to your Dokku instance
   - required: true
+- `ENV_CONTENT`:
+  - description:
+  - required: false
+  - default: ''
+- `ENC_ENV_FILE`:
+  - description:
+  - required: false
+  - default: ''
+- `ENC_ENV_PASSWORD`:
+  - description:
+  - required: false
+  - default: ''
 
 ## Building
 
